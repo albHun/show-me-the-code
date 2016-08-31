@@ -23,8 +23,10 @@ for i in range(len(wlist[0])):
     print 'Word', wlist[0][i], 'appeared', wlist[1][i], 'times.'
 
 #print the 50 most frequent word
-toplist = sorted(wlist[1])
-toplist.reverse()
+fw = zip(wlist[1], wlist[0])
+fw.sort()
+fw.reverse()
+wlist[0] = [w for f, w in fw]
+wlist[1] = [f for f, w in fw]
 for i in range(50):
-    print 'Word', wlist[0][wlist[1].index(toplist[i])], 'appeared', toplist[i], 'times.'
-
+    print 'Word', wlist[0][i], 'appeared', wlist[1][i], 'times.'
